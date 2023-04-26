@@ -49,19 +49,19 @@ buttons.forEach((button) => {
 
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
+const p6 = document.querySelector("#ex6-paragraph");
+const text6 = p6.textContent;
+let counter = 0;
 
-const paragraph = document.getElementById("ex6-paragraph");
-// console.log(text6);
+p6.textContent = "";
 
-let index = 0;
-const intervalId = setInterval(() => {
-    const subText = paragraph.textContent.substr(index, 20);
-    index += 20;
-    paragraph.textContent = subText;
-    if (index >= paragraph.textContent.length) {
+const intervalId = setInterval(function () {
+    p6.textContent += text6[counter];
+    counter++;
+    if (counter === text6.length) {
         clearInterval(intervalId);
     }
-}, 1000);
+}, 50); // 50 because 1000 is a second and we need 20 letters per second : 1000 / 20 = 50
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
 
