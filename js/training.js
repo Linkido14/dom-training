@@ -46,9 +46,22 @@ buttons.forEach((button) => {
         button.style.backgroundColor = "#" + randomColor;
     });
 });
+
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
 
+const paragraph = document.getElementById("ex6-paragraph");
+// console.log(text6);
+
+let index = 0;
+const intervalId = setInterval(() => {
+    const subText = paragraph.textContent.substr(index, 20);
+    index += 20;
+    paragraph.textContent = subText;
+    if (index >= paragraph.textContent.length) {
+        clearInterval(intervalId);
+    }
+}, 1000);
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
 
