@@ -15,6 +15,14 @@ window.addEventListener("scroll", function () {
 /* ------------------------------------ */
 /* --- Exercice 3 --- */
 
+// ex3-animals
+const btn2 = document.querySelector("#ex3 .button");
+const list = document.querySelector("#ex3-animals");
+btn2.addEventListener("click", function (event) {
+    const firstChild = list.firstElementChild;
+    list.appendChild(firstChild);
+});
+
 /* ------------------------------------ */
 /* --- Exercice 4 --- */
 
