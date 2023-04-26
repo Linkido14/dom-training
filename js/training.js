@@ -26,15 +26,15 @@ btn2.addEventListener("click", () => {
 /* ------------------------------------ */
 /* --- Exercice 4 --- */
 const button = document.querySelector("#ex4 .button");
-const colors = ["blue", "red", "green"];
+const colors = ["blue", "red", "green", "purple"];
 let indexColors = 0;
 
 button.addEventListener("click", () => {
-    button.style.background = colors[indexColors];
+    button.style.background = colors[indexColors % colors.length];
     indexColors++;
-    if (indexColors >= colors.length) {
-        indexColors = 0;
-    }
+    // if (indexColors >= colors.length) {
+    //     indexColors = 0;
+    // }
 });
 // button.classList.add("red");
 // button.classList.remove("red");
