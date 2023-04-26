@@ -18,13 +18,26 @@ window.addEventListener("scroll", function () {
 // ex3-animals
 const btn2 = document.querySelector("#ex3 .button");
 const list = document.querySelector("#ex3-animals");
-btn2.addEventListener("click", function (event) {
-    const firstChild = list.firstElementChild;
-    list.appendChild(firstChild);
+btn2.addEventListener("click", () => {
+    // const firstChild = list.firstElementChild;
+    list.appendChild(list.firstElementChild);
 });
 
 /* ------------------------------------ */
 /* --- Exercice 4 --- */
+const button = document.querySelector("#ex4 .button");
+const colors = ["blue", "red", "green"];
+let indexColors = 0;
+
+button.addEventListener("click", () => {
+    button.style.background = colors[indexColors];
+    indexColors++;
+    if (indexColors >= colors.length) {
+        indexColors = 0;
+    }
+});
+// button.classList.add("red");
+// button.classList.remove("red");
 
 /* ------------------------------------ */
 /* --- Exercice 5 --- */

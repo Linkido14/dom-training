@@ -1,3 +1,16 @@
 .visible {
     visibility: hidden;
 }
+
+.red {
+    background-color: red;
+    color: white;
+}
+.blue {
+    background-color: blue;
+    color: white;
+}
+.green {
+    background-color: green;
+    color: white;
+}
