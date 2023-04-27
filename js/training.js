@@ -74,5 +74,23 @@ const taskList = [
     "🌳 Tondre la pelouse",
 ];
 
+// // Ajouter un écouteur d'événement pour ajouter une tâche à la liste au clic sur le bouton
+// addButton.addEventListener("click", addTask);
+const button7 = document.getElementById("ex7-button");
+const list7 = document.getElementById("ex7-list");
+
+button7.addEventListener("click", () => {
+    if (taskList.length > 0) {
+        const li = document.createElement("li");
+        li.innerText = taskList.shift();
+        li.classList.add("task-list-task");
+        list7.appendChild(li);
+        li.addEventListener("click", () => {
+            list7.removeChild(li);
+        });
+    } else {
+        alert("No more tasks !");
+    }
+});
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
