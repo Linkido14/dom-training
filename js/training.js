@@ -83,6 +83,9 @@ button7.addEventListener("click", () => {
         li.addEventListener("click", function () {
             taskList.unshift(this.innerText);
             list7.removeChild(this);
+            // li.addEventListener("click", (lst) => {
+            // taskList.unshift(lst.currentTarget.innerText);
+            // list7.removeChild(lst.currentTarget);
         });
     } else {
         alert("No more tasks !");
