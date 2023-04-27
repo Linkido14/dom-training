@@ -61,7 +61,7 @@ const intervalId = setInterval(function () {
     if (counter === text6.length) {
         clearInterval(intervalId);
     }
-}, 50); // 50 because 1000 is a second and we need 20 letters per second : 1000 / 20 = 50
+}, 50); // 1000 = 1s, we need 20 letters/s so 1000 / 20 = 50
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
 
@@ -74,19 +74,18 @@ const taskList = [
     "🌳 Tondre la pelouse",
 ];
 
-// // Ajouter un écouteur d'événement pour ajouter une tâche à la liste au clic sur le bouton
-// addButton.addEventListener("click", addTask);
 const button7 = document.getElementById("ex7-button");
 const list7 = document.getElementById("ex7-list");
 
-button7.addEventListener("click", () => {
+button7.addEventListener("click", function () {
     if (taskList.length > 0) {
         const li = document.createElement("li");
         li.innerText = taskList.shift();
         li.classList.add("task-list-task");
         list7.appendChild(li);
-        li.addEventListener("click", () => {
-            list7.removeChild(li);
+        li.addEventListener("click", function () {
+            taskList.unshift(this.innerText);
+            list7.removeChild(this);
         });
     } else {
         alert("No more tasks !");
@@ -94,3 +93,9 @@ button7.addEventListener("click", () => {
 });
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
+const btnLvl = document.getElementById("ex8-button-level");
+const btnStr = document.getElementById("ex8-button-strength");
+const btnShi = document.getElementById("ex8-button-shield");
+const barLvl = document.getElementById("ex8-level");
+const barStr = document.getElementById("ex8-strength");
+const barShi = document.getElementById("ex8-shield");
