@@ -32,9 +32,6 @@ let indexColors = 0;
 button.addEventListener("click", () => {
     button.style.background = colors[indexColors % colors.length];
     indexColors++;
-    // if (indexColors >= colors.length) {
-    //     indexColors = 0;
-    // }
 });
 
 /* ------------------------------------ */
@@ -42,7 +39,7 @@ button.addEventListener("click", () => {
 const buttons = document.querySelectorAll("#ex5 .button");
 buttons.forEach((button) => {
     button.addEventListener("mouseover", () => {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16); // function random color
         button.style.backgroundColor = "#" + randomColor;
     });
 });
@@ -77,7 +74,7 @@ const taskList = [
 const button7 = document.getElementById("ex7-button");
 const list7 = document.getElementById("ex7-list");
 
-button7.addEventListener("click", function () {
+button7.addEventListener("click", () => {
     if (taskList.length > 0) {
         const li = document.createElement("li");
         li.innerText = taskList.shift();
@@ -99,3 +96,37 @@ const btnShi = document.getElementById("ex8-button-shield");
 const barLvl = document.getElementById("ex8-level");
 const barStr = document.getElementById("ex8-strength");
 const barShi = document.getElementById("ex8-shield");
+
+// create counter
+const counters = {
+    level: 0,
+    strength: 0,
+    shield: 0,
+};
+
+// initiate counter
+function updateCounterAndBar(index, value, bar) {
+    counters[index] = value;
+    bar.style.width = `${value}%`;
+}
+
+// increment counter and update bar
+function incrementCounterAndBar(index, bar) {
+    const value = counters[index] + 5;
+    if (value <= 100) {
+        updateCounterAndBar(index, value, bar);
+    }
+}
+
+// activate counter and update bar on click
+btnLvl.addEventListener("click", function () {
+    incrementCounterAndBar("level", barLvl);
+});
+
+btnStr.addEventListener("click", function () {
+    incrementCounterAndBar("strength", barStr);
+});
+
+btnShi.addEventListener("click", function () {
+    incrementCounterAndBar("shield", barShi);
+});
