@@ -1,16 +1,14 @@
 .visible {
     visibility: hidden;
+    /* display: none; */
 }
 
-.red {
-    background-color: red;
-    color: white;
-}
 .blue {
-    background-color: blue;
-    color: white;
+    background-color: lightblue;
+}
+.red {
+    background-color: lightcoral;
 }
 .green {
-    background-color: green;
-    color: white;
+    background-color: lightgreen;
 }

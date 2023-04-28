@@ -2,13 +2,13 @@
 /* --- Exercice 1 --- */
 const btn = document.querySelector(".button");
 const text = document.querySelector(".text");
-btn.addEventListener("click", function (event) {
+btn.addEventListener("click", () => {
     text.classList.toggle("visible");
 });
 /* ------------------------------------ */
 /* --- Exercice 2 --- */
 const scrollValue = document.getElementById("ex2-scroll-value");
-window.addEventListener("scroll", function () {
+window.addEventListener("scroll", () => {
     scrollValue.textContent = Math.round(window.scrollY);
 });
 
@@ -26,21 +26,30 @@ btn2.addEventListener("click", () => {
 /* ------------------------------------ */
 /* --- Exercice 4 --- */
 const button = document.querySelector("#ex4 .button");
-const colors = ["blue", "red", "green", "purple"];
+let colors = ["blue", "red", "green"];
 let indexColors = 0;
+const primaryClass = button.className;
 
-button.addEventListener("click", () => {
-    button.style.background = colors[indexColors % colors.length];
+button.addEventListener("click", function (e) {
+    this.className = primaryClass + " " + colors[indexColors % colors.length];
+    // button.style.background = colors[indexColors % colors.length];
     indexColors++;
 });
-
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
-const buttons = document.querySelectorAll("#ex5 .button");
+// const buttons = document.querySelectorAll("#ex5 .button");
+const buttons = document.querySelectorAll("#list5 > li > button");
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256); // Valeur de rouge entre 0 et 255
+    const g = Math.floor(Math.random() * 256); // Valeur de vert entre 0 et 255
+    const b = Math.floor(Math.random() * 256); // Valeur de bleu entre 0 et 255
+    return `rgb(${r}, ${g}, ${b})`;
+}
 buttons.forEach((button) => {
     button.addEventListener("mouseover", () => {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16); // function random color
-        button.style.backgroundColor = "#" + randomColor;
+        button.style.backgroundColor = getRandomColor();
+        // const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        // button.style.backgroundColor = "#" + getRandomColor;
     });
 });
 
