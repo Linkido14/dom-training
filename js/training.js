@@ -38,27 +38,28 @@ button.addEventListener("click", function (e) {
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
 // const buttons = document.querySelectorAll("#ex5 .button");
-// const buttons = document.querySelectorAll("#list5 > li > button");
+const buttons = document.querySelectorAll("#list5 > li > button");
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
 }
-// buttons.forEach((button) => {
-//     button.addEventListener("mouseover", () => {
-//         button.style.backgroundColor = getRandomColor();
-//         // const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-//         // button.style.backgroundColor = "#" + getRandomColor;
-//     });
-// });
-
-const list5 = document.getElementById("list5");
-list5.addEventListener("mouseover", (event) => {
-    if (event.target.tagName === "BUTTON") {
-        event.target.style.backgroundColor = getRandomColor();
-    }
+buttons.forEach((button) => {
+    button.addEventListener("mouseover", () => {
+        button.style.backgroundColor = getRandomColor();
+        // const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        button.style.backgroundColor = "#" + getRandomColor;
+    });
 });
+
+// VERSION 2
+// const list5 = document.getElementById("list5");
+// list5.addEventListener("mouseover", (event) => {
+//     if (event.target.tagName === "BUTTON") {
+//         event.target.style.backgroundColor = getRandomColor();
+//     }
+// });
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
 const p6 = document.querySelector("#ex6-paragraph");
@@ -95,12 +96,11 @@ button7.addEventListener("click", () => {
         li.innerText = taskList.shift();
         li.classList.add("task-list-task");
         list7.appendChild(li);
+
         li.addEventListener("click", function () {
             taskList.unshift(this.innerText);
-            list7.removeChild(this);
-            // li.addEventListener("click", (lst) => {
-            // taskList.unshift(lst.currentTarget.innerText);
-            // list7.removeChild(lst.currentTarget);
+            // list7.removeChild(this);
+            this.remove();
         });
     } else {
         alert("No more tasks !");
@@ -148,3 +148,19 @@ btnStr.addEventListener("click", function () {
 btnShi.addEventListener("click", function () {
     incrementCounterAndBar("shield", barShi);
 });
+
+setInterval(() => {
+    let updated = false;
+    if (counters.level > 0) {
+        updateCounterAndBar("level", counters.level - 1, barLvl);
+        updated = true;
+    }
+    if (counters.strength > 0) {
+        updateCounterAndBar("strength", counters.strength - 1, barStr);
+        updated = true;
+    }
+    if (counters.shield > 0) {
+        updateCounterAndBar("shield", counters.shield - 1, barShi);
+        updated = true;
+    }
+}, 500);
