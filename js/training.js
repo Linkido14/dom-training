@@ -38,21 +38,27 @@ button.addEventListener("click", function (e) {
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
 // const buttons = document.querySelectorAll("#ex5 .button");
-const buttons = document.querySelectorAll("#list5 > li > button");
+// const buttons = document.querySelectorAll("#list5 > li > button");
 function getRandomColor() {
-    const r = Math.floor(Math.random() * 256); // Valeur de rouge entre 0 et 255
-    const g = Math.floor(Math.random() * 256); // Valeur de vert entre 0 et 255
-    const b = Math.floor(Math.random() * 256); // Valeur de bleu entre 0 et 255
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
 }
-buttons.forEach((button) => {
-    button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = getRandomColor();
-        // const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        // button.style.backgroundColor = "#" + getRandomColor;
-    });
-});
+// buttons.forEach((button) => {
+//     button.addEventListener("mouseover", () => {
+//         button.style.backgroundColor = getRandomColor();
+//         // const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+//         // button.style.backgroundColor = "#" + getRandomColor;
+//     });
+// });
 
+const list5 = document.getElementById("list5");
+list5.addEventListener("mouseover", (event) => {
+    if (event.target.tagName === "BUTTON") {
+        event.target.style.backgroundColor = getRandomColor();
+    }
+});
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
 const p6 = document.querySelector("#ex6-paragraph");
